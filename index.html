@@ -1,0 +1,1774 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Little Story ♡</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    min-height:100vh;
+
+    background:
+    radial-gradient(circle at top left,#fff6f2 0%,transparent 40%),
+    radial-gradient(circle at bottom right,#f7dfe2 0%,transparent 45%),
+    linear-gradient(135deg,#fffaf7,#fce9e7,#f8dfe2);
+
+    font-family:"Montserrat",sans-serif;
+    color:#5d474b;
+    overflow-x:hidden;
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.page{
+    width:100%;
+    max-width:1000px;
+    margin:auto;
+    padding:60px 25px 100px;
+}
+
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.hearts span{
+    position:fixed;
+    color:rgba(190,120,130,.25);
+    font-size:25px;
+    animation:floatHeart 8s infinite ease-in-out;
+    pointer-events:none;
+    z-index:0;
+}
+
+.hearts span:nth-child(1){left:8%;top:20%;}
+.hearts span:nth-child(2){left:20%;top:70%;animation-delay:2s;}
+.hearts span:nth-child(3){left:45%;top:15%;animation-delay:1s;}
+.hearts span:nth-child(4){right:15%;top:30%;animation-delay:3s;}
+.hearts span:nth-child(5){right:8%;bottom:20%;animation-delay:1.5s;}
+.hearts span:nth-child(6){left:35%;bottom:10%;animation-delay:4s;}
+.hearts span:nth-child(7){right:40%;top:60%;animation-delay:2.5s;}
+
+@keyframes floatHeart{
+    0%,100%{
+        transform:translateY(0) rotate(0deg);
+        opacity:.25;
+    }
+
+    50%{
+        transform:translateY(-25px) rotate(10deg);
+        opacity:.6;
+    }
+}
+
+
+/* =========================
+   TOP LABEL
+========================= */
+
+.top-label{
+    text-align:center;
+    font-size:10px;
+    letter-spacing:4px;
+    color:#a47d82;
+    margin-bottom:25px;
+}
+
+
+/* =========================
+   QUESTION BOX
+========================= */
+
+.question-box{
+    position:relative;
+    z-index:1;
+
+    max-width:780px;
+    margin:30px auto 0;
+    padding:50px 45px;
+
+    background:rgba(255,255,255,.65);
+
+    border:1px solid rgba(210,170,175,.35);
+    border-radius:30px;
+
+    box-shadow:0 25px 70px rgba(100,70,80,.10);
+
+    text-align:center;
+    transition:.5s ease;
+}
+
+.question-box.fade-out{
+    opacity:0;
+    transform:translateY(-20px);
+}
+
+.question-box.fade-in{
+    animation:questionAppear .5s ease;
+}
+
+@keyframes questionAppear{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress{
+    margin-bottom:40px;
+}
+
+.progress-top{
+    display:flex;
+    justify-content:space-between;
+
+    font-size:10px;
+    letter-spacing:2px;
+    color:#a47d82;
+
+    margin-bottom:10px;
+}
+
+.line{
+    width:100%;
+    height:3px;
+    background:#f0dfe0;
+    border-radius:5px;
+    overflow:hidden;
+}
+
+.line-fill{
+    width:20%;
+    height:100%;
+    background:#c9989f;
+    transition:width .5s ease;
+}
+
+
+/* =========================
+   QUESTION TEXT
+========================= */
+
+.small-title{
+    font-size:10px;
+    letter-spacing:3px;
+    color:#a47d82;
+    margin-bottom:18px;
+}
+
+.question-box h1{
+    font-family:"Cormorant Garamond",serif;
+    font-size:43px;
+    line-height:1.15;
+    font-weight:500;
+    color:#664b50;
+    margin-bottom:15px;
+}
+
+.sub-text{
+    font-size:14px;
+    color:#8b6b70;
+    line-height:1.7;
+}
+
+
+/* =========================
+   OPTIONS
+========================= */
+
+.options{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-top:35px;
+}
+
+.option{
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+    width:100%;
+    padding:18px;
+
+    border:1px solid #ead5d7;
+    background:rgba(255,255,255,.5);
+    border-radius:15px;
+
+    color:#6f555a;
+    text-align:left;
+
+    cursor:pointer;
+    transition:.3s ease;
+
+    font-family:"Montserrat",sans-serif;
+}
+
+.option:hover{
+    transform:translateY(-3px);
+    border-color:#cfa1a7;
+    box-shadow:0 10px 25px rgba(120,80,90,.08);
+}
+
+.option.selected{
+    background:#f7e4e5;
+    border-color:#c48f97;
+}
+
+.option-number{
+    min-width:30px;
+    height:30px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+    background:#f3dfe1;
+    color:#956f75;
+    font-size:12px;
+}
+
+.option-text{
+    flex:1;
+    font-size:13px;
+    line-height:1.5;
+}
+
+.option-arrow{
+    color:#b0848a;
+}
+
+
+/* =========================
+   REACTION
+========================= */
+
+.reaction{
+    min-height:25px;
+    margin-top:20px;
+
+    color:#9b7178;
+
+    font-family:"Cormorant Garamond",serif;
+    font-size:19px;
+
+    opacity:0;
+}
+
+.reaction.show{
+    animation:reactionAppear .5s ease forwards;
+}
+
+@keyframes reactionAppear{
+    from{
+        opacity:0;
+        transform:translateY(8px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+
+/* =========================
+   CONTINUE BUTTON
+========================= */
+
+#continueButton{
+    margin-top:25px;
+
+    padding:15px 30px;
+
+    border:none;
+    border-radius:30px;
+
+    background:#d5a4aa;
+    color:white;
+
+    font-family:"Montserrat",sans-serif;
+    font-size:13px;
+
+    cursor:pointer;
+    transition:.3s ease;
+}
+
+#continueButton:disabled{
+    opacity:.45;
+    cursor:not-allowed;
+}
+
+#continueButton:not(:disabled):hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(130,80,90,.15);
+}
+
+#continueButton span{
+    margin-left:10px;
+}
+
+
+/* =========================
+   BOTTOM NOTE
+========================= */
+
+.bottom-note{
+    margin-top:30px;
+
+    font-family:"Cormorant Garamond",serif;
+    font-size:15px;
+    color:#9a7b80;
+}
+
+
+/* =========================
+   MEMORY SECTION
+========================= */
+
+.memory-section{
+    display:none;
+    padding-top:70px;
+}
+
+.memory-section.show{
+    display:block;
+    animation:sectionReveal 1s ease;
+}
+
+@keyframes sectionReveal{
+    from{opacity:0;}
+    to{opacity:1;}
+}
+
+
+/* =========================
+   MEMORY INTRO
+========================= */
+
+.memory-intro{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.memory-small-title{
+    font-size:10px;
+    letter-spacing:4px;
+    color:#a47d82;
+    margin-bottom:15px;
+}
+
+.memory-intro h2,
+.video-section h2{
+    font-family:"Cormorant Garamond",serif;
+    font-size:48px;
+    font-weight:500;
+    color:#674b50;
+    margin-bottom:15px;
+}
+
+.memory-intro p{
+    color:#8b6b70;
+    line-height:1.8;
+}
+
+
+/* =========================
+   MEMORY CARDS
+========================= */
+
+.memory-card{
+    display:none;
+
+    max-width:850px;
+    margin:50px auto;
+    padding:35px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.62);
+
+    border-radius:30px;
+
+    box-shadow:0 20px 55px rgba(100,70,80,.10);
+}
+
+.memory-card.active{
+    display:block;
+    animation:memoryAppear .8s ease;
+}
+
+@keyframes memoryAppear{
+    from{
+        opacity:0;
+        transform:translateY(35px) scale(.97);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+.memory-label{
+    font-size:10px;
+    letter-spacing:4px;
+    color:#a47d82;
+    margin-bottom:20px;
+}
+
+.memory-card img{
+    width:100%;
+    max-width:650px;
+    max-height:600px;
+
+    object-fit:cover;
+
+    display:block;
+    margin:auto;
+
+    border-radius:22px;
+
+    box-shadow:0 20px 45px rgba(100,70,80,.15);
+}
+
+.memory-card-text{
+    max-width:600px;
+    margin:25px auto 0;
+}
+
+.memory-card-text h3{
+    font-family:"Cormorant Garamond",serif;
+    font-size:34px;
+    font-weight:500;
+    color:#684c51;
+    margin-bottom:10px;
+}
+
+.memory-card-text p{
+    color:#876c70;
+    line-height:1.8;
+    font-size:14px;
+    white-space:pre-line;
+}
+
+.memory-card button,
+.special-video button{
+    margin-top:25px;
+
+    padding:14px 28px;
+
+    border:1px solid #d2abb0;
+    border-radius:30px;
+
+    background:#fffaf8;
+    color:#795b60;
+
+    font-family:"Montserrat",sans-serif;
+    font-size:13px;
+
+    cursor:pointer;
+    transition:.3s ease;
+}
+
+.memory-card button:hover,
+.special-video button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(120,80,90,.12);
+}
+
+
+/* =========================
+   VIDEO SECTION
+========================= */
+
+.video-section{
+    display:none;
+    padding-top:90px;
+}
+
+.video-section.show-videos{
+    display:block;
+    animation:sectionReveal 1s ease;
+}
+
+.video-section > h2{
+    text-align:center;
+}
+
+.video-intro{
+    text-align:center;
+    color:#8b6b70;
+    line-height:1.8;
+    margin-bottom:50px;
+}
+
+
+/* =========================
+   SPECIAL VIDEOS
+========================= */
+
+.special-video{
+    display:none;
+
+    max-width:850px;
+    margin:50px auto;
+    padding:30px;
+
+    text-align:center;
+    border-radius:30px;
+}
+
+.special-video.active-video{
+    display:block;
+    animation:memoryAppear .8s ease;
+}
+
+.video-number{
+    font-size:10px;
+    letter-spacing:4px;
+    color:#a47d82;
+    margin-bottom:20px;
+}
+
+.special-video video{
+    width:100%;
+    max-width:700px;
+    max-height:600px;
+
+    display:block;
+    margin:auto;
+
+    border-radius:20px;
+
+    box-shadow:0 20px 45px rgba(100,70,80,.15);
+}
+
+
+/* VIDEO STYLES */
+
+.video-one{
+    background:rgba(255,255,255,.65);
+    border:1px solid #f0dddd;
+}
+
+.video-two{
+    background:rgba(252,239,237,.8);
+    border-radius:15px 45px 15px 45px;
+}
+
+.video-three{
+    background:rgba(255,248,245,.8);
+    border-radius:50px;
+}
+
+.video-four{
+    background:rgba(248,239,243,.85);
+    border-radius:45px 15px 45px 15px;
+}
+
+.final-video{
+    background:rgba(250,232,235,.8);
+    border:1px solid #e6c7ca;
+}
+
+.special-video h3{
+    font-family:"Cormorant Garamond",serif;
+    font-size:34px;
+    font-weight:500;
+    color:#684c51;
+    margin-top:22px;
+}
+
+.special-video p{
+    color:#876c70;
+    line-height:1.8;
+    margin-top:10px;
+    font-size:14px;
+}
+
+
+/* =========================
+   FINAL REVEAL
+========================= */
+
+.final-reveal{
+    display:none;
+    text-align:center;
+    padding-top:100px;
+}
+
+.final-reveal.show{
+    display:block;
+    animation:finalReveal 1.5s ease;
+}
+
+@keyframes finalReveal{
+    from{
+        opacity:0;
+        transform:translateY(50px) scale(.96);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+.final-photo-label{
+    font-size:10px;
+    letter-spacing:4px;
+    color:#a47d82;
+    margin-bottom:25px;
+}
+
+.final-photo{
+    width:100%;
+    max-width:750px;
+    max-height:750px;
+
+    object-fit:cover;
+
+    display:block;
+    margin:auto;
+
+    border-radius:25px;
+
+    box-shadow:0 25px 65px rgba(100,70,80,.20);
+}
+
+.final-message{
+    max-width:700px;
+    margin:55px auto 0;
+    padding:40px 25px;
+}
+
+.anniversary-flower{
+    font-size:30px;
+    color:#c28d94;
+    margin-bottom:15px;
+}
+
+.anniversary-small{
+    font-size:10px;
+    letter-spacing:4px;
+    color:#a47d82;
+    margin-bottom:18px;
+}
+
+.final-message h2{
+    font-family:"Cormorant Garamond",serif;
+    font-size:52px;
+    font-weight:500;
+    line-height:1.15;
+    color:#674b50;
+}
+
+.final-message p{
+    margin-top:25px;
+    color:#876c70;
+    line-height:1.9;
+    font-size:14px;
+}
+
+.final-heart{
+    font-size:35px;
+    color:#c48f97;
+    margin-top:30px;
+}
+
+.final-line{
+    margin-top:10px;
+
+    font-family:"Cormorant Garamond",serif;
+    font-size:20px;
+    color:#8e6c72;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:700px){
+
+    .page{
+        padding:40px 15px 70px;
+    }
+
+    .question-box{
+        padding:35px 20px;
+    }
+
+    .question-box h1{
+        font-size:34px;
+    }
+
+    .options{
+        grid-template-columns:1fr;
+    }
+
+    .memory-intro h2,
+    .video-section h2{
+        font-size:38px;
+    }
+
+    .memory-card{
+        padding:20px;
+    }
+
+    .memory-card img{
+        max-height:500px;
+    }
+
+    .special-video{
+        padding:20px;
+    }
+
+    .final-message h2{
+        font-size:42px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- FLOATING HEARTS -->
+
+<div class="hearts">
+    <span>♡</span>
+    <span>♡</span>
+    <span>♡</span>
+    <span>♡</span>
+    <span>♡</span>
+    <span>♡</span>
+    <span>♡</span>
+</div>
+
+
+<main class="page">
+
+<div class="top-label">
+    A LITTLE SOMETHING FOR YOU
+</div>
+
+
+<!-- =========================
+     QUESTION SECTION
+========================= -->
+
+<section class="question-box" id="questionBox">
+
+    <div class="progress">
+
+        <div class="progress-top">
+
+            <span>OUR STORY</span>
+
+            <span>
+                <span id="questionNumber">01</span>
+                / 05
+            </span>
+
+        </div>
+
+        <div class="line">
+            <div class="line-fill" id="lineFill"></div>
+        </div>
+
+    </div>
+
+
+    <div class="small-title">
+        LET'S SEE WHAT YOU REMEMBER
+    </div>
+
+
+    <h1 id="question">
+        Where did our story begin? 💭
+    </h1>
+
+
+    <p class="sub-text" id="subText">
+        Choose the answer that feels most like us.
+    </p>
+
+
+    <div class="options" id="options"></div>
+
+
+    <div class="reaction" id="reaction"></div>
+
+
+    <button id="continueButton"
+            onclick="nextQuestion()"
+            disabled>
+
+        Choose an answer
+
+        <span>→</span>
+
+    </button>
+
+
+    <div class="bottom-note">
+        There are no wrong answers...
+        just little memories. ♡
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     MEMORY SECTION
+========================= -->
+
+<section class="memory-section" id="memorySection">
+
+
+    <div class="memory-intro">
+
+        <div class="memory-small-title">
+            NOW LET ME SHOW YOU...
+        </div>
+
+        <h2>
+            Little pieces of us. ♡
+        </h2>
+
+        <p>
+            Every picture has a little story.
+            <br>
+            Let's go through them one by one.
+        </p>
+
+    </div>
+
+
+    <!-- MEMORY 01 -->
+
+    <div class="memory-card active" id="memory1">
+
+        <div class="memory-label">
+            MEMORY 01
+        </div>
+
+        <img src="sur1.jpg" alt="Our memory">
+
+        <div class="memory-card-text">
+
+            <h3>
+                The Beginning
+            </h3>
+
+            <p>
+Indha photo edutha time-la,
+namma story ivlo beautiful memories
+create pannum-nu namakku theriyadhu. ♡
+
+It was just our first picture,
+but little did we know,
+it would become one of my favourite memories. 💗
+            </p>
+
+        </div>
+
+        <button onclick="showMemory(2)">
+            Next Memory →
+        </button>
+
+    </div>
+
+
+    <!-- MEMORY 02 -->
+
+    <div class="memory-card" id="memory2">
+
+        <div class="memory-label">
+            MEMORY 02
+        </div>
+
+        <img src="sur3.jpeg" alt="Our memory">
+
+        <div class="memory-card-text">
+
+            <h3>
+                Little Moments
+            </h3>
+
+            <p>
+October 7 — just another date to the world,
+but for me, it will always be the day
+my heart found a reason to choose you. 💗
+
+I don’t know what the future holds,
+but if I get to choose,
+I’d choose you again and again.
+
+So… will you be my forever? ❤️
+            </p>
+
+        </div>
+
+        <button onclick="showMemory(3)">
+            Next Memory →
+        </button>
+
+    </div>
+
+
+    <!-- MEMORY 03 -->
+
+    <div class="memory-card" id="memory3">
+
+        <div class="memory-label">
+            MEMORY 03
+        </div>
+
+        <img src="sur4.jpeg" alt="Our memory">
+
+        <div class="memory-card-text">
+
+            <h3>
+                The Laughs
+            </h3>
+
+            <p>
+Out of all the pictures we took together,
+this one will always be my favourite —
+not because it’s perfect, but because I was sitting on your lap,
+and for a moment, you held me like I was your little child. 💗
+            </p>
+
+        </div>
+
+        <button onclick="showMemory(4)">
+            Next Memory →
+        </button>
+
+    </div>
+
+
+    <!-- MEMORY 04 -->
+
+    <div class="memory-card" id="memory4">
+
+        <div class="memory-label">
+            MEMORY 04
+        </div>
+
+        <img src="sur5.jpeg" alt="Our memory">
+
+        <div class="memory-card-text">
+
+            <h3>
+                The Little Things
+            </h3>
+
+            <p>
+Our first little trip,
+away from the noise, just us in our own peaceful world.
+
+Nothing fancy, nothing perfect —
+just a memory I’ll always hold close. 💗
+            </p>
+
+        </div>
+
+        <button onclick="showMemory(5)">
+            Next Memory →
+        </button>
+
+    </div>
+
+
+    <!-- MEMORY 05 -->
+
+    <div class="memory-card" id="memory5">
+
+        <div class="memory-label">
+            MEMORY 05
+        </div>
+
+        <img src="sur6.jpeg" alt="Our memory">
+
+        <div class="memory-card-text">
+
+            <h3>
+                My Favourite Memories
+            </h3>
+
+            <p>
+You chose this saree for me,
+and somehow, wearing it felt like carrying
+a little piece of you with me.
+
+That’s why this will always be more than just a saree to me. 💗
+            </p>
+
+        </div>
+
+        <button onclick="showMemory(6)">
+            One More Memory →
+        </button>
+
+    </div>
+
+
+    <!-- MEMORY 06 -->
+
+    <div class="memory-card" id="memory6">
+
+        <div class="memory-label">
+            MEMORY 06
+        </div>
+
+        <img src="sur8.jpeg" alt="Our favourite memory">
+
+        <div class="memory-card-text">
+
+            <h3>
+                One That Stays
+            </h3>
+
+            <p>
+The flowers in my hair, the kungumam on my forehead,
+and that little moment made me feel like I had a special place beside you —
+
+a place I’ll always treasure,
+like the dream of being your wife someday. 💗
+            </p>
+
+        </div>
+
+        <button onclick="showVideos()">
+            Continue to Our Videos →
+        </button>
+
+    </div>
+
+
+
+    <!-- =========================
+         VIDEO SECTION
+    ========================= -->
+
+    <div class="video-section" id="videoSection">
+
+        <div class="memory-small-title">
+            A FEW SECONDS OF US
+        </div>
+
+        <h2>
+            Moments I wish I could replay. 🎥
+        </h2>
+
+        <p class="video-intro">
+            Photos captured the moments...
+            <br>
+            but these little clips let us feel them again.
+        </p>
+
+
+        <!-- VIDEO 01 -->
+
+        <div class="special-video video-one"
+             id="video1">
+
+            <div class="video-number">
+                MOMENT 01
+            </div>
+
+            <video controls playsinline>
+                <source src="v1.mp4" type="video/mp4">
+                Your browser does not support video.
+            </video>
+
+            <h3>
+                A Little Moment ♡
+            </h3>
+
+            <p>
+                Just another little moment
+                that became a favourite memory.
+            </p>
+
+            <button onclick="showVideo(2)">
+                Next Moment →
+            </button>
+
+        </div>
+
+
+        <!-- VIDEO 02 -->
+
+        <div class="special-video video-two"
+             id="video2">
+
+            <div class="video-number">
+                MOMENT 02
+            </div>
+
+            <video controls playsinline>
+                <source src="v2.mp4" type="video/mp4">
+                Your browser does not support video.
+            </video>
+
+            <h3>
+                The Random Ones
+            </h3>
+
+            <p>
+                Sometimes the most ordinary moments
+                become the most unforgettable.
+            </p>
+
+            <button onclick="showVideo(3)">
+                One More →
+            </button>
+
+        </div>
+
+
+        <!-- VIDEO 03 -->
+
+        <div class="special-video video-three"
+             id="video3">
+
+            <div class="video-number">
+                MOMENT 03
+            </div>
+
+            <video controls playsinline>
+                <source src="v3.mp4" type="video/mp4">
+                Your browser does not support video.
+            </video>
+
+            <h3>
+                A Memory in Motion ♡
+            </h3>
+
+            <p>
+                A few seconds...
+                but a memory I'll keep
+                for a long time. 💗
+            </p>
+
+            <button onclick="showVideo(4)">
+                One More Moment →
+            </button>
+
+        </div>
+
+
+        <!-- VIDEO 04 -->
+
+        <div class="special-video video-four"
+             id="video4">
+
+            <div class="video-number">
+                MOMENT 04
+            </div>
+
+            <video controls playsinline>
+                <source src="v4.mp4" type="video/mp4">
+                Your browser does not support video.
+            </video>
+
+            <h3>
+                Another Little Memory ♡
+            </h3>
+
+            <p>
+                Another little piece of our story
+                that I never want to forget. 💗
+            </p>
+
+            <button onclick="showFinalVideo()">
+                There's One Last Thing →
+            </button>
+
+        </div>
+
+
+        <!-- FINAL VIDEO -->
+
+        <div class="special-video final-video"
+             id="finalVideo">
+
+            <div class="video-number">
+                ONE LAST MEMORY
+            </div>
+
+            <video controls playsinline>
+
+                <source src="v5.mp4"
+                        type="video/mp4">
+
+                Your browser does not support video.
+
+            </video>
+
+            <h3>
+                And after all the memories we’ve made…
+            </h3>
+
+            <p>
+                there’s just one more little surprise,
+                waiting to become a part of our story. 💗
+            </p>
+
+            <button onclick="openFinalMessage()">
+                Open My Last Message ♡
+            </button>
+
+        </div>
+
+
+
+        <!-- =========================
+             FINAL PHOTO + MESSAGE
+        ========================= -->
+
+        <div class="final-reveal" id="finalReveal">
+
+            <div class="final-photo-label">
+                FOR YOU, ALWAYS ♡
+            </div>
+
+            <img src="sur12.jpeg"
+                 alt="Our special memory"
+                 class="final-photo">
+
+
+            <div class="final-message">
+
+                <div class="anniversary-flower">
+                    ✿
+                </div>
+
+                <div class="anniversary-small">
+                    AND AFTER ALL THESE MEMORIES...
+                </div>
+
+                <h2>
+                    Happy Anniversary,
+                    <br>
+                    My Love. ❤️
+                </h2>
+
+                <p>
+
+                    From the smallest moments
+                    to the memories I never want to forget...
+
+                    <br><br>
+
+                    Thank you for being
+                    such a beautiful part of my story.
+
+                    <br><br>
+
+                    Here's to us,
+                    and every little moment
+                    still waiting to become a memory.
+
+                </p>
+
+                <div class="final-heart">
+                    ♡
+                </div>
+
+                <div class="final-line">
+                    You, in every chapter.
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<script>
+
+/* =========================
+   QUESTIONS
+========================= */
+
+const questions = [
+
+    {
+        question:"Where did our story begin? 💭",
+
+        options:[
+            "A random little conversation",
+            "A simple friendship",
+            "A moment neither of us expected",
+            "Somewhere my heart still remembers"
+        ],
+
+        reactions:[
+            "Hmm... cute answer. 🤭💗",
+            "That's a sweet way to remember it. 🌷",
+            "Maybe that's how it felt... unexpected. ✨",
+            "Yes... that's the one I was hoping you'd choose. 🥺❤️"
+        ]
+    },
+
+    {
+        question:"Which memory of us would you keep forever? 🥺",
+
+        options:[
+            "Our first proper conversation",
+            "All those random laughs",
+            "The little moments nobody else noticed",
+            "Every memory, because I can't choose just one"
+        ],
+
+        reactions:[
+            "Aww... that one is special. 💗",
+            "Those laughs really were something. 😂",
+            "The little things are sometimes the biggest things. 🌷",
+            "Okay... you understood the assignment. 🥺❤️"
+        ]
+    },
+
+    {
+        question:"What makes our bond feel different? 🌷",
+
+        options:[
+            "The way we understand each other",
+            "The comfort we have with each other",
+            "The silly moments we share",
+            "Honestly... everything"
+        ],
+
+        reactions:[
+            "That's definitely one of them. 🤍",
+            "Comfort is something beautiful. 🌸",
+            "Okay, that made me smile. 😂💗",
+            "Everything? Now you're making this difficult. 🥺❤️"
+        ]
+    },
+
+    {
+        question:"If you could relive one part of our story, what would you choose? ✨",
+
+        options:[
+            "Our first meeting",
+            "One of our happiest days",
+            "One completely random moment",
+            "The moment I realised you were special"
+        ],
+
+        reactions:[
+            "I'd probably choose that too. 🌷",
+            "Some days really deserve a replay. ✨",
+            "The random moments are usually the best ones. 😂",
+            "Okay... that answer means something. 🥺💗"
+        ]
+    },
+
+    {
+        question:"What am I to you? ❤️",
+
+        options:[
+            "Someone special",
+            "My favourite person",
+            "Someone I never want to lose",
+            "A little piece of home"
+        ],
+
+        reactions:[
+            "I'll accept that... for now. 🤭💗",
+            "Favourite person? That's cute. 🌷",
+            "That one actually made me emotional. 🥺",
+            "And maybe that's exactly what I wanted to hear. ❤️"
+        ]
+    }
+
+];
+
+
+/* =========================
+   VARIABLES
+========================= */
+
+let currentQuestion = 0;
+let selectedOption = null;
+
+const question =
+document.getElementById("question");
+
+const questionNumber =
+document.getElementById("questionNumber");
+
+const lineFill =
+document.getElementById("lineFill");
+
+const optionsContainer =
+document.getElementById("options");
+
+const reaction =
+document.getElementById("reaction");
+
+const continueButton =
+document.getElementById("continueButton");
+
+const questionBox =
+document.getElementById("questionBox");
+
+const memorySection =
+document.getElementById("memorySection");
+
+
+/* =========================
+   LOAD QUESTION
+========================= */
+
+function loadQuestion(){
+
+    const data = questions[currentQuestion];
+
+    selectedOption = null;
+
+    question.innerText = data.question;
+
+    questionNumber.innerText =
+        String(currentQuestion + 1).padStart(2,"0");
+
+    const progress =
+        ((currentQuestion + 1) / questions.length) * 100;
+
+    lineFill.style.width = progress + "%";
+
+    optionsContainer.innerHTML = "";
+
+    reaction.innerText = "";
+
+    reaction.classList.remove("show");
+
+    continueButton.disabled = true;
+
+    continueButton.innerHTML =
+        'Choose an answer <span>→</span>';
+
+
+    data.options.forEach((option,index)=>{
+
+        const button =
+        document.createElement("button");
+
+        button.className = "option";
+
+        button.innerHTML = `
+
+            <span class="option-number">
+                ${String.fromCharCode(65 + index)}
+            </span>
+
+            <span class="option-text">
+                ${option}
+            </span>
+
+            <span class="option-arrow">
+                →
+            </span>
+        `;
+
+        button.onclick = function(){
+
+            selectOption(index,button);
+
+        };
+
+        optionsContainer.appendChild(button);
+
+    });
+
+}
+
+
+/* =========================
+   SELECT OPTION
+========================= */
+
+function selectOption(index,selectedButton){
+
+    selectedOption = index;
+
+    document
+    .querySelectorAll(".option")
+    .forEach(button=>{
+        button.classList.remove("selected");
+    });
+
+    selectedButton.classList.add("selected");
+
+    const data = questions[currentQuestion];
+
+    reaction.innerText =
+        data.reactions[index];
+
+    reaction.classList.remove("show");
+
+    setTimeout(()=>{
+        reaction.classList.add("show");
+    },50);
+
+    continueButton.disabled = false;
+
+    continueButton.innerHTML =
+        'Continue Our Story <span>→</span>';
+}
+
+
+/* =========================
+   NEXT QUESTION
+========================= */
+
+function nextQuestion(){
+
+    if(selectedOption === null){
+        return;
+    }
+
+
+    if(currentQuestion === questions.length - 1){
+
+        questionBox.classList.add("fade-out");
+
+        setTimeout(()=>{
+
+            questionBox.style.display = "none";
+
+            document
+            .querySelector(".top-label")
+            .style.display = "none";
+
+            memorySection.classList.add("show");
+
+            setTimeout(()=>{
+
+                memorySection.scrollIntoView({
+                    behavior:"smooth",
+                    block:"start"
+                });
+
+            },100);
+
+        },500);
+
+        return;
+    }
+
+
+    questionBox.classList.add("fade-out");
+
+    setTimeout(()=>{
+
+        currentQuestion++;
+
+        loadQuestion();
+
+        questionBox.classList.remove("fade-out");
+
+        questionBox.classList.add("fade-in");
+
+        setTimeout(()=>{
+
+            questionBox.classList.remove("fade-in");
+
+        },500);
+
+    },350);
+
+}
+
+
+/* =========================
+   SHOW MEMORY
+========================= */
+
+function showMemory(number){
+
+    document
+    .querySelectorAll(".memory-card")
+    .forEach(card=>{
+        card.classList.remove("active");
+    });
+
+    const nextMemory =
+        document.getElementById("memory" + number);
+
+    nextMemory.classList.add("active");
+
+    nextMemory.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
+
+}
+
+
+/* =========================
+   SHOW VIDEOS
+========================= */
+
+function showVideos(){
+
+    document
+    .querySelectorAll(".memory-card")
+    .forEach(card=>{
+        card.classList.remove("active");
+    });
+
+    const videoSection =
+        document.getElementById("videoSection");
+
+    videoSection.classList.add("show-videos");
+
+    const firstVideo =
+        document.getElementById("video1");
+
+    firstVideo.classList.add("active-video");
+
+    videoSection.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
+    });
+
+}
+
+
+/* =========================
+   SHOW NEXT VIDEO
+========================= */
+
+function showVideo(number){
+
+    document
+    .querySelectorAll(".special-video")
+    .forEach(video=>{
+        video.classList.remove("active-video");
+    });
+
+    const video =
+        document.getElementById("video" + number);
+
+    video.classList.add("active-video");
+
+    video.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
+
+}
+
+
+/* =========================
+   SHOW FINAL VIDEO
+========================= */
+
+function showFinalVideo(){
+
+    document
+    .querySelectorAll(".special-video")
+    .forEach(video=>{
+        video.classList.remove("active-video");
+    });
+
+    const finalVideo =
+        document.getElementById("finalVideo");
+
+    finalVideo.classList.add("active-video");
+
+    finalVideo.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
+
+}
+
+
+/* =========================
+   FINAL MESSAGE
+========================= */
+
+function openFinalMessage(){
+
+    const finalReveal =
+        document.getElementById("finalReveal");
+
+    finalReveal.classList.add("show");
+
+    setTimeout(()=>{
+
+        finalReveal.scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+
+    },300);
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
